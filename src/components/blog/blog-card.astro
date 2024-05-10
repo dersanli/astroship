@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+
+interface Props {
+  blogPostEntry: CollectionEntry<'blog'>;
+  cardIndex: number;
+}
+
+const { blogPostEntry, cardIndex } = Astro.props;
+---
+
+<li>
+  <a href={`/blog/${blogPostEntry.slug}`}>
+    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+      <Picture
+        src={blogPostEntry.data.image.src}
+        alt={blogPostEntry.data.image.alt}
+        sizes="(max-width: 800px) 100vw, 800px"
+        width={800}
+        height={600}
+        loading={cardIndex <= 2 ? 'eager' : 'lazy'}
+        decoding={cardIndex <= 2 ? 'sync' : 'async'}
+        class="w-full rounded-md object-cover object-center bg-white"
+      />
+      <div>
+        <span
+          class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+          {blogPostEntry.data.category}
+        </span>
+
+        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
+          {blogPostEntry.data.title}
+        </h2>
+
+        <div class="flex gap-2 mt-3">
+          <span class="text-gray-400">
+            {blogPostEntry.data.author}
+          </span>
+          <span class="text-gray-400">• </span>
+          <time
+            class="text-gray-400"
+            datetime={blogPostEntry.data.publishDate.toISOString()}>
+            {blogPostEntry.data.publishDate.toDateString()}
+          </time>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
