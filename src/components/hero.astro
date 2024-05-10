@@ -1,14 +1,20 @@
 ---
-import { Picture } from "astro:assets";
-import heroImage from "assets/hero.png";
-import Link from "@components/ui/link.astro";
-import { Icon } from "astro-icon";
+import { Picture } from 'astro:assets';
+import heroImage from 'assets/hero.jpg';
+import Link from '@components/ui/link.astro';
+import { Icon } from 'astro-icon';
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+<div>
+  <h1
+    class="pt-16 text-center text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+    Software engineering at its best
+  </h1>
+</div>
+<main class="grid lg:grid-cols-2 place-items-center pb-8 md:pt-12 md:pb-24">
   <div class="py-6 md:order-1 hidden md:block">
     <Picture
+      class="rounded-xl shadow-2xl"
       src={heroImage}
       alt="Astronaut in the air"
       widths={[200, 400, 600]}
@@ -18,17 +24,25 @@ import { Icon } from "astro-icon";
     />
   </div>
   <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Marketing website done with Astro
-    </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
-      create any website with this starter.
+      Welcome to Datacloud, where innovation meets expertise in the realm of
+      software services. As pioneers in the field, we specialize in crafting
+      cutting-edge enterprise applications tailored to your needs. Whether
+      you're envisioning a groundbreaking new web application or seeking to
+      revitalize your existing digital infrastructure, our team stands ready to
+      transform your ideas into reality.
+      <br />
+      At Datacloud, we don't just build software; we sculpt experiences. Our mission
+      is to empower businesses like yours with intuitive, scalable, and seamlessly
+      integrated solutions that propel you towards success in the digital age. With
+      our wealth of experience and commitment to excellence, we're not just your
+      service provider – we're your trusted partners on the journey to innovation.
+      <br />
+      Discover the limitless possibilities with Datacloud. Let's redefine the future
+      of your enterprise together.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
+      <!-- <Link
         href="#"
         href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
         target="_blank"
@@ -47,7 +61,7 @@ import { Icon } from "astro-icon";
         target="_blank">
         <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
          GitHub Repo
-      </Link>
+      </Link> -->
     </div>
   </div>
 </main>
